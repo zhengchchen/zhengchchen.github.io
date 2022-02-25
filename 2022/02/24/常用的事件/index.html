@@ -191,6 +191,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-tags">
           <a href="/tags/%20" rel="section">
             
@@ -325,7 +335,7 @@
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;contextmenu&#x27;</span>,<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">	e.<span class="title function_">preventDefault</span>();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h4 id="禁止鼠标选中-selectstart-开始选中"><a href="#禁止鼠标选中-selectstart-开始选中" class="headerlink" title="禁止鼠标选中(selectstart 开始选中)"></a>禁止鼠标选中(selectstart 开始选中)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">document.addEventListener(&#x27;selectstart&#x27;,funtion(e)&#123;</span><br><span class="line">	e.preventDefault();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="禁止鼠标选中-selectstart-开始选中"><a href="#禁止鼠标选中-selectstart-开始选中" class="headerlink" title="禁止鼠标选中(selectstart 开始选中)"></a>禁止鼠标选中(selectstart 开始选中)</h4><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">document.add<span class="constructor">EventListener(&#x27;<span class="params">selectstart</span>&#x27;,<span class="params">funtion</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">	e.prevent<span class="constructor">Default()</span>;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <h4 id="图片跟随鼠标"><a href="#图片跟随鼠标" class="headerlink" title="图片跟随鼠标"></a>图片跟随鼠标</h4><ul>
 <li>使用鼠标移动事件：mousemove</li>
@@ -378,6 +388,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/02/25/BOM/" rel="prev" title="BOM">
+                BOM <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -458,7 +472,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
