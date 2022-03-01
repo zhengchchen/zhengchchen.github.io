@@ -343,7 +343,7 @@
 
       
         
-          <p>mustache模板引擎的作用是将字符串模板变为dom模板，最后结合数据挂载到dom树上，在页面上进行渲染。在这个过程中，mustache将模板字符串先转换为’tokens’，然后结合数据’data’，最终生成dom字符串。例如：</p>
+          <p>mustache模板引擎的作用是将字符串模板变为dom模板，最后结合数据挂载到dom树上，在页面上进行渲染。在这个过程中，mustache将模板字符串先转换为<code>tokens</code>，然后结合数据<code>data</code>，最终生成dom字符串。例如：</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2022/03/01/%E6%89%8B%E5%86%99mustache%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/#more" rel="contents">
@@ -635,35 +635,15 @@
 
       
         
-          
-            <p>ES6 允许使用箭头(=&gt;)定义函数：</p>
+          <p>ES6 允许使用箭头(=&gt;)定义函数：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lef fn = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="comment">//旧声明</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> <span class="title function_">fn</span> = (<span class="params">a,b</span>)=&gt; &#123;</span><br><span class="line">	<span class="comment">//箭头函数声明</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>特性：</p>
-<ol>
-<li><p><code>this</code>是静态的，<code>this</code>始终指向函数声明时所在作用域下的this的值，call、apply等不能改变this的指向</p>
-</li>
-<li><p>不能作为构造函数实例化对象</p>
-</li>
-<li><p>不能使用arguments 变量</p>
-</li>
-<li><p>箭头函数的简写：</p>
-<ol>
-<li>当形参由且只有一个的时候，可以省略小括号</li>
-<li>省略花括号，当代码体只有一条语句的时候，此时return必须省略，而且语句的执行结果就是函数的返回值</li>
-</ol>
-</li>
-</ol>
-<p>箭头函数适合与this无关的回调，定时器，数组的方法回调，不适合与this有关的回调，时间回调，对象的方法</p>
-<p>ES6允许给函数参数赋初始值</p>
-<ol>
-<li>形参初始值，具有默认值的参数，一般位置要靠后</li>
-<li>与解构赋值结合使用</li>
-</ol>
-<p>ES6引入rest参数，用于获取函数的实参，用来代替arguments，但返回的是数组，rest参数必须放到参数的最后</p>
-<p>…拓展运算符能将数组转换为逗号分隔的参数序列</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2022/02/27/ES6%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1803,7 +1783,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
