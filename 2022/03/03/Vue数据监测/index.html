@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="Vue监视数据的原理  Vue会监视data中所有层次的数据、  如何监测对象中的数据？  通过setter实现监视，且要在new Vue时旧传入要监测的数据。  对象中后追加的属性，Vue默认不做响应式处理  如需给后添加的属性做响应式，请使用以下API： Vue.set(target,propertyName&#x2F;index,value) vm.$set(target,propertyName&#x2F;i">
+<meta name="description" content="Vue监视数据的原理  Vue会监视data中所有层次的数据  如何监测对象中的数据？  通过setter实现监视，且要在new Vue时旧传入要监测的数据。  对象中后追加的属性，Vue默认不做响应式处理  如需给后添加的属性做响应式，请使用以下API： Vue.set(target,propertyName&#x2F;index,value) vm.$set(target,propertyName&#x2F;in">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue数据监测">
 <meta property="og:url" content="http://zhengchchen.cool/2022/03/03/Vue%E6%95%B0%E6%8D%AE%E7%9B%91%E6%B5%8B/index.html">
 <meta property="og:site_name" content="CodeWithFun">
-<meta property="og:description" content="Vue监视数据的原理  Vue会监视data中所有层次的数据、  如何监测对象中的数据？  通过setter实现监视，且要在new Vue时旧传入要监测的数据。  对象中后追加的属性，Vue默认不做响应式处理  如需给后添加的属性做响应式，请使用以下API： Vue.set(target,propertyName&#x2F;index,value) vm.$set(target,propertyName&#x2F;i">
+<meta property="og:description" content="Vue监视数据的原理  Vue会监视data中所有层次的数据  如何监测对象中的数据？  通过setter实现监视，且要在new Vue时旧传入要监测的数据。  对象中后追加的属性，Vue默认不做响应式处理  如需给后添加的属性做响应式，请使用以下API： Vue.set(target,propertyName&#x2F;index,value) vm.$set(target,propertyName&#x2F;in">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-03-03T09:10:25.000Z">
-<meta property="article:modified_time" content="2022-03-04T02:01:45.474Z">
+<meta property="article:modified_time" content="2022-03-09T08:56:36.507Z">
 <meta property="article:author" content="zhengchchen">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
@@ -344,7 +344,7 @@
       
         <p>Vue监视数据的原理</p>
 <ol>
-<li><p><code>Vue</code>会监视<code>data</code>中所有层次的数据、</p>
+<li><p><code>Vue</code>会监视<code>data</code>中所有层次的数据</p>
 </li>
 <li><p>如何监测对象中的数据？</p>
 <ul>
@@ -355,16 +355,17 @@
 <li><p>如需给后添加的属性做响应式，请使用以下API：</p>
 <p><code>Vue.set(target,propertyName/index,value)</code></p>
 <p><code>vm.$set(target,propertyName/index,value</code></p>
-</li>
+<span id="more"></span></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p>如何监测数组中的数据？</p>
 <p>​    通过包裹数组更新元素的方法实现，本质就是做了两件事情：</p>
-<pre><code>1. 调用原生对应方法对数组进行更新
-2. 重新解析模板，进而更新页面
-</code></pre>
+<ol>
+<li>调用原生对应方法对数组进行更新</li>
+<li>重新解析模板，进而更新页面</li>
+</ol>
 </li>
 <li><p>在<code>Vue</code>修改数组中的某个元素一定要用如下方法：</p>
 <ol>
@@ -379,11 +380,14 @@
 <p>若：&lt;input type =’text’/&gt;，则v-model收集的是value值，用户输入的也是value值</p>
 <p>若：&lt;input type =’radio’/&gt;，则v-model收集的是value值，且要给标签配置value值</p>
 <p>若：&lt;input type =’checkbox’/&gt;</p>
-<pre><code> 1. 没有配置input的value属性，那么收集的就是checked(勾选 or 未勾选，是布尔值)
- 2. 配置input的value属性
-      1. v-model初始值是非数组，那么收集的就是checked
-      2. v-model初始值是数组，那么收集的就是value组成的数组
-</code></pre>
+<ol>
+<li>没有配置input的value属性，那么收集的就是checked(勾选 or 未勾选，是布尔值)</li>
+<li>配置input的value属性<ol>
+<li>v-model初始值是非数组，那么收集的就是checked</li>
+<li>v-model初始值是数组，那么收集的就是value组成的数组</li>
+</ol>
+</li>
+</ol>
 <p>v-model的三个修饰符</p>
 <p>​    lazy：失去焦点再收集数据</p>
 <p>​    number：输入字符串转为有效的数字</p>

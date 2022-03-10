@@ -763,10 +763,9 @@
 
       
         
-          
-            <p>Vue监视数据的原理</p>
+          <p>Vue监视数据的原理</p>
 <ol>
-<li><p><code>Vue</code>会监视<code>data</code>中所有层次的数据、</p>
+<li><p><code>Vue</code>会监视<code>data</code>中所有层次的数据</p>
 </li>
 <li><p>如何监测对象中的数据？</p>
 <ul>
@@ -777,46 +776,13 @@
 <li><p>如需给后添加的属性做响应式，请使用以下API：</p>
 <p><code>Vue.set(target,propertyName/index,value)</code></p>
 <p><code>vm.$set(target,propertyName/index,value</code></p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>如何监测数组中的数据？</p>
-<p>​    通过包裹数组更新元素的方法实现，本质就是做了两件事情：</p>
-<pre><code>1. 调用原生对应方法对数组进行更新
-2. 重新解析模板，进而更新页面
-</code></pre>
-</li>
-<li><p>在<code>Vue</code>修改数组中的某个元素一定要用如下方法：</p>
-<ol>
-<li>使用这些<code>API</code>:<code>push()、pop()、shift()、unshift()、splice()、sort()、rerverse()</code></li>
-<li><code>Vue.set()</code>或<code>vm.$set()</code></li>
-</ol>
-</li>
-</ol>
-<p><strong>特别注意</strong>:<code>Vue.set()</code>和<code>vm.$set</code>不能给<code>vm</code>或<code>vm</code>的根数据对象添加属性</p>
-<ol start="5">
-<li><p>收集表单数据</p>
-<p>若：&lt;input type =’text’/&gt;，则v-model收集的是value值，用户输入的也是value值</p>
-<p>若：&lt;input type =’radio’/&gt;，则v-model收集的是value值，且要给标签配置value值</p>
-<p>若：&lt;input type =’checkbox’/&gt;</p>
-<pre><code> 1. 没有配置input的value属性，那么收集的就是checked(勾选 or 未勾选，是布尔值)
- 2. 配置input的value属性
-      1. v-model初始值是非数组，那么收集的就是checked
-      2. v-model初始值是数组，那么收集的就是value组成的数组
-</code></pre>
-<p>v-model的三个修饰符</p>
-<p>​    lazy：失去焦点再收集数据</p>
-<p>​    number：输入字符串转为有效的数字</p>
-<p>​    trim：输入首尾空格过滤</p>
-</li>
-<li><p>过滤器：</p>
-<p>定义：对要显示的数据进行特定格式化后再显示，可以接受额外参数，多个过滤器可以串联，并没有改变原本的数据，而是产生新数据</p>
-</li>
-</ol>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2022/03/03/Vue%E6%95%B0%E6%8D%AE%E7%9B%91%E6%B5%8B/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
