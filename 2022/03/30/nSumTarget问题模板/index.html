@@ -97,7 +97,7 @@
 <meta property="og:description" content="前言 nSumTarget问题为leetcode中常见的求数组中某几个数之和定于固定值的问题。一般形式为给定数组nums，求数组中n个数之和等于target，返回这n个数的索引、值、和、差值等情况。笔者总结了nSumTarget模板，可以解决求任意n个数等于(接近于)任意target的问题。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-03-30T08:58:50.000Z">
-<meta property="article:modified_time" content="2022-03-30T08:59:51.924Z">
+<meta property="article:modified_time" content="2022-03-30T09:11:37.123Z">
 <meta property="article:author" content="kazuha">
 <meta property="article:tag" content="leetcode 双指针">
 <meta name="twitter:card" content="summary">
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  567
+                  559
                 </span>
               
 
@@ -442,10 +442,9 @@
 <h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><ol>
 <li><p>跳过所有重复的元素： <code>while (lo &lt; hi &amp;&amp; nums[lo] == left) lo++；while (lo &lt; hi &amp;&amp; nums[hi] == right) hi--;</code>(在找到一个结果后，也应该跳过所有重复项)</p>
 </li>
-<li><p>在<code>twoSum</code>子问题解决后，需要将当前的元素也push到每一个结果中，即<code>tuple.push_back(nums[i]);res.push_back(tuple);</code></p>
+<li><p>在<code>twoSum</code>子问题解决后，需要将当前的元素也push进去，即<code>tuple.push_back(nums[i])</code>;</p>
 </li>
-<li><p>在一个结果找到后，需要跳过和当前数字重复的情况，否则会出现重复结果;</p>
-<p><code>while (i &lt; sz - 1 &amp;&amp; nums[i] == nums[i + 1]) i++;</code></p>
+<li><p>在一个结果找到后，需要跳过和当前数字重复的情况，否则会出现重复结果;<code>while (i &lt; sz - 1 &amp;&amp; nums[i] == nums[i + 1]) i++;</code></p>
 </li>
 <li><p>记得每次调用从<code>start</code>开始，不是0开始，否则会出现重复。</p>
 </li>

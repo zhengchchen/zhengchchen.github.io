@@ -13,10 +13,9 @@
 <h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><ol>
 <li><p>跳过所有重复的元素： <code>while (lo &lt; hi &amp;&amp; nums[lo] == left) lo++；while (lo &lt; hi &amp;&amp; nums[hi] == right) hi--;</code>(在找到一个结果后，也应该跳过所有重复项)</p>
 </li>
-<li><p>在<code>twoSum</code>子问题解决后，需要将当前的元素也push到每一个结果中，即<code>tuple.push_back(nums[i]);res.push_back(tuple);</code></p>
+<li><p>在<code>twoSum</code>子问题解决后，需要将当前的元素也push进去，即<code>tuple.push_back(nums[i])</code>;</p>
 </li>
-<li><p>在一个结果找到后，需要跳过和当前数字重复的情况，否则会出现重复结果;</p>
-<p><code>while (i &lt; sz - 1 &amp;&amp; nums[i] == nums[i + 1]) i++;</code></p>
+<li><p>在一个结果找到后，需要跳过和当前数字重复的情况，否则会出现重复结果;<code>while (i &lt; sz - 1 &amp;&amp; nums[i] == nums[i + 1]) i++;</code></p>
 </li>
 <li><p>记得每次调用从<code>start</code>开始，不是0开始，否则会出现重复。</p>
 </li>
