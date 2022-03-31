@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="leetcode,排序," />
 
 
 
@@ -89,15 +89,25 @@
 
 
 
-<meta name="description" content="这个人很懒，什么也没留下。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="沉溪拾笔">
-<meta property="og:url" content="http://zhengchchen.cool/archives/index.html">
+<meta name="description" content="前言 ​        许多应用程序需要处理有序的元素，但不一定要求它们全部有序，或者并不要求它们一次就排好序。在某些情况下，我们需要一边收集一些元素，一边维护并处理当前键值最大的元素，然后再收集更多的元素，再处理当前键值最大的元素。例如，收集或电脑的应用程序的优先级，我们总是希望它们能够处理优先级最高的程序。 ​        在这种情况下，一个合适的数据结构应该支持两种操作：删除最大元素和插入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="优先队列">
+<meta property="og:url" content="http://zhengchchen.cool/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/index.html">
 <meta property="og:site_name" content="沉溪拾笔">
-<meta property="og:description" content="这个人很懒，什么也没留下。">
+<meta property="og:description" content="前言 ​        许多应用程序需要处理有序的元素，但不一定要求它们全部有序，或者并不要求它们一次就排好序。在某些情况下，我们需要一边收集一些元素，一边维护并处理当前键值最大的元素，然后再收集更多的元素，再处理当前键值最大的元素。例如，收集或电脑的应用程序的优先级，我们总是希望它们能够处理优先级最高的程序。 ​        在这种情况下，一个合适的数据结构应该支持两种操作：删除最大元素和插入">
 <meta property="og:locale">
+<meta property="og:image" content="http://zhengchchen.cool/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/.%5C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%5C%E4%BA%8C%E5%8F%89%E5%A0%86%E8%A1%A8%E7%A4%BA%E6%B3%95.png">
+<meta property="og:image" content="http://zhengchchen.cool/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/.%5C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%5C%E5%A0%86%E7%9A%84%E6%AF%94%E8%BE%83%E5%92%8C%E4%BA%A4%E6%8D%A2%E6%96%B9%E6%B3%95.png">
+<meta property="og:image" content="http://zhengchchen.cool/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/.%5C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%5C%E7%94%B1%E4%B8%8B%E8%87%B3%E4%B8%8A%E7%9A%84%E5%A0%86%E6%9C%89%E5%BA%8F%E5%8C%96%EF%BC%88%E4%B8%8A%E6%B5%AE%EF%BC%89%E7%9A%84%E5%AE%9E%E7%8E%B0.png">
+<meta property="og:image" content="http://zhengchchen.cool/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/.%5C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%5C%E7%94%B1%E4%B8%8A%E8%87%B3%E4%B8%8B%E7%9A%84%E5%A0%86%E6%9C%89%E5%BA%8F%E5%8C%96%EF%BC%88%E4%B8%8B%E6%B2%89%EF%BC%89%E7%9A%84%E5%AE%9E%E7%8E%B0.png">
+<meta property="og:image" content="http://zhengchchen.cool/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/.%5C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%5C%E5%A0%86%E7%9A%84%E6%93%8D%E4%BD%9C.png">
+<meta property="article:published_time" content="2022-03-31T12:25:27.000Z">
+<meta property="article:modified_time" content="2022-03-31T13:32:03.228Z">
 <meta property="article:author" content="kazuha">
+<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="排序">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhengchchen.cool/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/.%5C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%5C%E4%BA%8C%E5%8F%89%E5%A0%86%E8%A1%A8%E7%A4%BA%E6%B3%95.png">
 
 
 
@@ -127,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://zhengchchen.cool/archives/"/>
+  <link rel="canonical" href="http://zhengchchen.cool/2022/03/31/优先队列/"/>
 
 
 
 
 
-  <title>归档 | 沉溪拾笔</title>
+  <title>优先队列 | 沉溪拾笔</title>
   
 
 
@@ -152,7 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a target="_blank" rel="noopener" href="https://github.com/zhengchchen" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -290,148 +300,285 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhengchchen.cool/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="沉溪拾笔">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">优先队列</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-31T20:25:27+08:00">
+                2022-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 3 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2022">2022</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" itemprop="url">
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">优先队列</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.5k
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2022-03-31T20:25:27+08:00"
-              content="2022-03-31" >
-          03-31
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2022/03/30/nSumTarget%E9%97%AE%E9%A2%98%E6%A8%A1%E6%9D%BF/" itemprop="url">
-              
-                <span itemprop="name">nSumTarget问题模板</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2022-03-30T16:58:50+08:00"
-              content="2022-03-30" >
-          03-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>​        许多应用程序需要处理有序的元素，但不一定要求它们全部有序，或者并不要求它们一次就排好序。在某些情况下，我们需要一边收集一些元素，一边维护并处理当前键值最大的元素，然后再收集更多的元素，再处理当前键值最大的元素。例如，收集或电脑的应用程序的优先级，我们总是希望它们能够处理优先级最高的程序。</p>
+<p>​        在这种情况下，一个合适的数据结构应该支持两种操作：<strong>删除最大元素</strong>和<strong>插入元素</strong>。这种数据类型叫做<strong>优先队列</strong>。</p>
+</blockquote>
+<span id="more"></span>
 
-        
-        
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
+<li><p>MaxPq()：创建一个优先队列</p>
+</li>
+<li><p>MaxPQ(max)：创建一个初始容量为max的优先队列</p>
+</li>
+<li><p>MaxPQ([])：利用[]中的元素创建一个优先队列</p>
+</li>
+<li><p>insert(key)：向优先队列里面插入一个元素</p>
+</li>
+<li><p>max()：返回最大元素</p>
+</li>
+<li><p>delMax()：删除最大元素</p>
+</li>
+<li><p>isEmpty()：判断优先队列是否为空</p>
+</li>
+<li><p>size()：返回优先队列的元素个数</p>
+</li>
+</ul>
+<h2 id="初级实现"><a href="#初级实现" class="headerlink" title="初级实现"></a>初级实现</h2><h3 id="数组实现-无序"><a href="#数组实现-无序" class="headerlink" title="数组实现(无序)"></a>数组实现(无序)</h3><p>​        基于压栈的实现，<code>insert()</code>方法和栈的<code>push()</code>方法完全一样。而<code>delMax()</code>可以添加一段类似于选择排序的内循环代码，将最大元素和边界元素交换然后删除它，类似于栈的<code>pop()</code>方法。</p>
+<h3 id="数组实现-有序"><a href="#数组实现-有序" class="headerlink" title="数组实现(有序)"></a>数组实现(有序)</h3><p>​        在<code>insert()</code>方法添加代码，将所有较大的元素向右移动一格以保证数组有序。这样，最大的元素总会在数组的一边，优先队列的<code>delMax()</code>方法就和栈的<code>pop()</code>操作一致了。</p>
+<h3 id="链表表示法"><a href="#链表表示法" class="headerlink" title="链表表示法"></a>链表表示法</h3><p>​        用基于链表的下压栈的代码作为基础，而后可以选择修改pop() 来找到并返回最大元素，或是修改push() 来保证所有元素为逆序并用pop() 来删除并返回链表的首元素(也就是最大的元素）。</p>
+<p>​        使用无序序列是解决这个问题的惰性方法，我们仅在必要的时候才会采取行动（找出最大元素）；使用有序序列则是解决问题的积极方法，因为我们会尽可能未雨绸缪（在插入元素时就保持列表有序），使后续操作更高效。</p>
+<h2 id="堆的定义"><a href="#堆的定义" class="headerlink" title="堆的定义"></a>堆的定义</h2><p>​        二叉堆可以很好地实现优先队列的基本操作。在二叉堆的数组中，每个元素都要保证大于等于另两个特点位置的元素。相应地，这些位置的元素又至少要大于等于数组中的另两个元素，以此类推。如果我们将所有元素画成一棵二叉树，将每个较大元素和两个较小的元素用边连接就可以很容易看出这种结构。</p>
+<p><strong>定义</strong></p>
+<p>当一棵二叉树的每个结点都大于等于它的两个子结点时，它被称为<strong>堆有序</strong>。相应地，在堆有序的二叉树中，每个结点都小于等于它的父结点（如果有的话）。从任意结点向上，我们都能得到一列非递减的元素；从任意结点向下，我们都能得到一列非递增的元素。因此，根结点是堆有序的二叉树中的最大结点。</p>
+<p><strong>二叉堆表示法</strong></p>
+<p>​        采用完全二叉树的形式来表示一个二叉堆，从根节点，由上向下，从左至右，在每个节点的下方连接两个更小的结点，直到N个节点全部连接完毕。完全二叉树可以采用数组不需要指针就可以表示。具体方法就是将二叉树的结点按照层级顺序放入数组中，根结点在位置1，它的子结点在位置2 和3，而子结点的子结点则分别在位置4、5、6 和7，以此类推（不使用数组的第一个为止）。</p>
+<p><img src="/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/.%5C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%5C%E4%BA%8C%E5%8F%89%E5%A0%86%E8%A1%A8%E7%A4%BA%E6%B3%95.png" alt="一颗堆有序的完全二叉树"></p>
+<p>​        （简单起见，在下文中我们将二叉堆简称为堆）在一个堆中，位置k 的结点的父结点的位置为k/2(向下取整)，而它的两个子结点的位置则分别为2k 和2k+1。这样在不使用指针的情况下（我们在第3 章中讨论二叉树时会用到它们）我们也可以通过计算数组的索引在树中上下移动：从a[k] 向上一层就令k 等于k/2，向下一层则令k 等于2k 或2k+1。一棵大小为N的完全二叉树的高度为lgN(向下取整)</p>
+<h2 id="堆的算法"><a href="#堆的算法" class="headerlink" title="堆的算法"></a>堆的算法</h2><p>​        采用长度N+1的数组pq[]来表示一个大小为N的堆，不会使用pq[0]，堆元素放在pq[1]到pq[n]中，我们只通过私有辅助函数less() 和exch() 来访问元素，堆实现的比较和交换方法如图所示。</p>
+<p><img src="/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/.%5C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%5C%E5%A0%86%E7%9A%84%E6%AF%94%E8%BE%83%E5%92%8C%E4%BA%A4%E6%8D%A2%E6%96%B9%E6%B3%95.png" alt="堆的比较和交换方法"></p>
+<p>​        堆的操作会首先进行一些简单的改动，会打破堆的状态，然后再遍历堆并按照要求将堆的状态恢复。我们称这个过程叫做堆的<strong>有序化</strong>。有序化主要会遇到两种情况，当某个节点的优先级上升（或实在堆底加入了一个新的元素）时，我们需要由下至上恢复堆的顺序。当某个结点的优先级下降（例如，将根结点替换为一个较小的元素）时，我们需要由上至下恢复堆的顺序。首先，我们会学习如何实现这两种辅助操作，然后再用它们实现插入元素和删除最大元素的操作。</p>
+<p><strong>由下至上的堆有序化（上浮）</strong></p>
+<p>​        如果堆的有序状态因为某个结点变得比它的父结点更大而被打破，那么我们就需要通过交换它和它的父结点来修复堆。交换后，这个结点比它的两个子结点都大（一个是曾经的父结点，另一个比它更小，因为它是曾经父结点的子结点），但这个结点仍然可能比它现在的父结点更大。我们可以一遍遍地用同样的办法恢复秩序，将这个结点不断向上移动直到我们遇到了一个更大的父结点。只要记住位置k 的结点的父结点的位置是k/2(向下取整)，这个过程实现起来很简单。swim() 方法中的循环可以保证只有位置k 上的结点大于它的父结点时堆的有序状态才会被打破。因此只要该结点不再大于它的父结点，堆的有序状态就恢复了。至于方法名，当一个结点太大的时候它需要浮（swim）到堆的更高层。由下至上的堆有序化的实现代码如图所示。</p>
+<p><img src="/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/.%5C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%5C%E7%94%B1%E4%B8%8B%E8%87%B3%E4%B8%8A%E7%9A%84%E5%A0%86%E6%9C%89%E5%BA%8F%E5%8C%96%EF%BC%88%E4%B8%8A%E6%B5%AE%EF%BC%89%E7%9A%84%E5%AE%9E%E7%8E%B0.png" alt="由下至上的堆有序化（上浮）的实现"></p>
+<p><strong>由上至下的堆有序化（下沉）的实现</strong></p>
+<p>​        如果堆的有序状态因为某个结点变得比它的两个子结点或是其中之一更小了而被打破了，那么我们可以通过将它和它的两个子结点中的较大者交换来恢复堆。交换可能会在子结点处继续打破堆的有序状态，因此我们需要不断地用相同的方式将其修复，将结点向下移动直到它的子结点都比它更小或是到达了堆的底部。由位置为k 的结点的子结点位于2k 和2k+1 可以直接得到对应的代码。至于方法名，由上至下的堆有序化的实现代码见图。当一个结点太小的时候它需要沉（sink）到堆的更低层。</p>
+<p><img src="/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/.%5C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%5C%E7%94%B1%E4%B8%8A%E8%87%B3%E4%B8%8B%E7%9A%84%E5%A0%86%E6%9C%89%E5%BA%8F%E5%8C%96%EF%BC%88%E4%B8%8B%E6%B2%89%EF%BC%89%E7%9A%84%E5%AE%9E%E7%8E%B0.png" alt="由上至下的堆有序化（下沉）的实现"></p>
+<p><strong>基于堆的优先队列的实现</strong></p>
+<p>​        现在有了swin和sink方法，我们可以轻松实现一个基于堆的优先队列。插入元素时，将新元素加到数组的末尾，同时增加堆的大小并让这个新元素上浮到合适的为止。删除最大元素时，我们从数组顶端删去最大的元素并将数组的最后一个元素放到顶端，减小堆的大小并让这个元素下沉到合适的为止。具体过程如图所示。</p>
+<p><img src="/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/.%5C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%5C%E5%A0%86%E7%9A%84%E6%93%8D%E4%BD%9C.png" alt="堆的操作"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MaxPQ</span>&lt;Key <span class="keyword">extends</span> <span class="title class_">Comparable</span>&lt;Key&gt;&gt;</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">private</span> Key[] pq; <span class="comment">// 基于堆的完全二叉树</span></span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span> <span class="variable">N</span> <span class="operator">=</span> <span class="number">0</span>; <span class="comment">// 存储于pq[1..N]中，pq[0]没有使用</span></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">MaxPQ</span><span class="params">(<span class="type">int</span> maxN)</span></span><br><span class="line">	&#123; pq = (Key[]) <span class="keyword">new</span> <span class="title class_">Comparable</span>[maxN+<span class="number">1</span>]; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isEmpty</span><span class="params">()</span></span><br><span class="line">    &#123; <span class="type">return</span> <span class="variable">N</span> <span class="operator">=</span>= <span class="number">0</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">size</span><span class="params">()</span></span><br><span class="line">    &#123; <span class="keyword">return</span> N; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">insert</span><span class="params">(Key v)</span></span><br><span class="line">    &#123;</span><br><span class="line">    pq[++N] = v;</span><br><span class="line">    swim(N);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> Key <span class="title function_">delMax</span><span class="params">()</span></span><br><span class="line">    &#123;</span><br><span class="line">    <span class="type">Key</span> <span class="variable">max</span> <span class="operator">=</span> pq[<span class="number">1</span>]; <span class="comment">// 从根结点得到最大元素</span></span><br><span class="line">    exch(<span class="number">1</span>, N--); <span class="comment">// 将其和最后一个结点交换</span></span><br><span class="line">    pq[N+<span class="number">1</span>] = <span class="literal">null</span>; <span class="comment">// 防止对象游离</span></span><br><span class="line">    sink(<span class="number">1</span>); <span class="comment">// 恢复堆的有序性</span></span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 辅助方法的实现请见本节前面的代码框</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">less</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">exch</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">swim</span><span class="params">(<span class="type">int</span> k)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">sink</span><span class="params">(<span class="type">int</span> k)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2022/03/30/%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0mustache%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/" itemprop="url">
-              
-                <span itemprop="name">手写实现mustache模板引擎</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2022-03-30T12:10:05+08:00"
-              content="2022-03-30" >
-          03-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+<p>​        优先队列由一个基于堆的完全二叉树表示， 存储于数组pq[1..N] 中，pq[0] 没有使用。在insert() 中，我们将N 加一并把新元素添加在数组最后，然后用swim() 恢复堆的秩序。在delMax() 中，我们从pq[1] 中得到需要返回的元素，然后将pq[N] 移动到pq[1]，将N 减一并用sink() 恢复堆的秩序。同时我们还将不再使用的pq[N+1] 设为null，以便系统回收它所占用的空间。和以前一样（请见1.3 节），这里省略了动态调整数组大小的代码。对于一个含有N个元素的基于堆的优先队列，插入元素操作只需不超过（lgN+1）次比较，删除最大元素的操作需要不超过2lgN 次比较。</p>
 
       
-
     </div>
+    
+    
+    
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+    
+    </div>  
+
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    kazuha
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://zhengchchen.cool/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" title="优先队列">http://zhengchchen.cool/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
+          
+            <a href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag"><i class="fa fa-tag"></i> 排序</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/03/30/nSumTarget%E9%97%AE%E9%A2%98%E6%A8%A1%E6%9D%BF/" rel="next" title="nSumTarget问题模板">
+                <i class="fa fa-chevron-left"></i> nSumTarget问题模板
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -439,6 +586,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -459,8 +610,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -559,6 +719,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API"><span class="nav-number">2.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E7%BA%A7%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">初级实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0-%E6%97%A0%E5%BA%8F"><span class="nav-number">3.1.</span> <span class="nav-text">数组实现(无序)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0-%E6%9C%89%E5%BA%8F"><span class="nav-number">3.2.</span> <span class="nav-text">数组实现(有序)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">链表表示法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">4.</span> <span class="nav-text">堆的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E7%9A%84%E7%AE%97%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">堆的算法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -741,6 +917,10 @@ setInterval("createtime()",250);
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

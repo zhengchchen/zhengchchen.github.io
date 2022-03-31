@@ -43,6 +43,68 @@
       </tags>
   </entry>
   <entry>
+    <title>优先队列</title>
+    <url>/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>​        许多应用程序需要处理有序的元素，但不一定要求它们全部有序，或者并不要求它们一次就排好序。在某些情况下，我们需要一边收集一些元素，一边维护并处理当前键值最大的元素，然后再收集更多的元素，再处理当前键值最大的元素。例如，收集或电脑的应用程序的优先级，我们总是希望它们能够处理优先级最高的程序。</p>
+<p>​        在这种情况下，一个合适的数据结构应该支持两种操作：<strong>删除最大元素</strong>和<strong>插入元素</strong>。这种数据类型叫做<strong>优先队列</strong>。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
+<li><p>MaxPq()：创建一个优先队列</p>
+</li>
+<li><p>MaxPQ(max)：创建一个初始容量为max的优先队列</p>
+</li>
+<li><p>MaxPQ([])：利用[]中的元素创建一个优先队列</p>
+</li>
+<li><p>insert(key)：向优先队列里面插入一个元素</p>
+</li>
+<li><p>max()：返回最大元素</p>
+</li>
+<li><p>delMax()：删除最大元素</p>
+</li>
+<li><p>isEmpty()：判断优先队列是否为空</p>
+</li>
+<li><p>size()：返回优先队列的元素个数</p>
+</li>
+</ul>
+<h2 id="初级实现"><a href="#初级实现" class="headerlink" title="初级实现"></a>初级实现</h2><h3 id="数组实现-无序"><a href="#数组实现-无序" class="headerlink" title="数组实现(无序)"></a>数组实现(无序)</h3><p>​        基于压栈的实现，<code>insert()</code>方法和栈的<code>push()</code>方法完全一样。而<code>delMax()</code>可以添加一段类似于选择排序的内循环代码，将最大元素和边界元素交换然后删除它，类似于栈的<code>pop()</code>方法。</p>
+<h3 id="数组实现-有序"><a href="#数组实现-有序" class="headerlink" title="数组实现(有序)"></a>数组实现(有序)</h3><p>​        在<code>insert()</code>方法添加代码，将所有较大的元素向右移动一格以保证数组有序。这样，最大的元素总会在数组的一边，优先队列的<code>delMax()</code>方法就和栈的<code>pop()</code>操作一致了。</p>
+<h3 id="链表表示法"><a href="#链表表示法" class="headerlink" title="链表表示法"></a>链表表示法</h3><p>​        用基于链表的下压栈的代码作为基础，而后可以选择修改pop() 来找到并返回最大元素，或是修改push() 来保证所有元素为逆序并用pop() 来删除并返回链表的首元素(也就是最大的元素）。</p>
+<p>​        使用无序序列是解决这个问题的惰性方法，我们仅在必要的时候才会采取行动（找出最大元素）；使用有序序列则是解决问题的积极方法，因为我们会尽可能未雨绸缪（在插入元素时就保持列表有序），使后续操作更高效。</p>
+<h2 id="堆的定义"><a href="#堆的定义" class="headerlink" title="堆的定义"></a>堆的定义</h2><p>​        二叉堆可以很好地实现优先队列的基本操作。在二叉堆的数组中，每个元素都要保证大于等于另两个特点位置的元素。相应地，这些位置的元素又至少要大于等于数组中的另两个元素，以此类推。如果我们将所有元素画成一棵二叉树，将每个较大元素和两个较小的元素用边连接就可以很容易看出这种结构。</p>
+<p><strong>定义</strong></p>
+<p>当一棵二叉树的每个结点都大于等于它的两个子结点时，它被称为<strong>堆有序</strong>。相应地，在堆有序的二叉树中，每个结点都小于等于它的父结点（如果有的话）。从任意结点向上，我们都能得到一列非递减的元素；从任意结点向下，我们都能得到一列非递增的元素。因此，根结点是堆有序的二叉树中的最大结点。</p>
+<p><strong>二叉堆表示法</strong></p>
+<p>​        采用完全二叉树的形式来表示一个二叉堆，从根节点，由上向下，从左至右，在每个节点的下方连接两个更小的结点，直到N个节点全部连接完毕。完全二叉树可以采用数组不需要指针就可以表示。具体方法就是将二叉树的结点按照层级顺序放入数组中，根结点在位置1，它的子结点在位置2 和3，而子结点的子结点则分别在位置4、5、6 和7，以此类推（不使用数组的第一个为止）。</p>
+<p><img src="/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/.%5C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%5C%E4%BA%8C%E5%8F%89%E5%A0%86%E8%A1%A8%E7%A4%BA%E6%B3%95.png" alt="一颗堆有序的完全二叉树"></p>
+<p>​        （简单起见，在下文中我们将二叉堆简称为堆）在一个堆中，位置k 的结点的父结点的位置为k/2(向下取整)，而它的两个子结点的位置则分别为2k 和2k+1。这样在不使用指针的情况下（我们在第3 章中讨论二叉树时会用到它们）我们也可以通过计算数组的索引在树中上下移动：从a[k] 向上一层就令k 等于k/2，向下一层则令k 等于2k 或2k+1。一棵大小为N的完全二叉树的高度为lgN(向下取整)</p>
+<h2 id="堆的算法"><a href="#堆的算法" class="headerlink" title="堆的算法"></a>堆的算法</h2><p>​        采用长度N+1的数组pq[]来表示一个大小为N的堆，不会使用pq[0]，堆元素放在pq[1]到pq[n]中，我们只通过私有辅助函数less() 和exch() 来访问元素，堆实现的比较和交换方法如图所示。</p>
+<p><img src="/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/.%5C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%5C%E5%A0%86%E7%9A%84%E6%AF%94%E8%BE%83%E5%92%8C%E4%BA%A4%E6%8D%A2%E6%96%B9%E6%B3%95.png" alt="堆的比较和交换方法"></p>
+<p>​        堆的操作会首先进行一些简单的改动，会打破堆的状态，然后再遍历堆并按照要求将堆的状态恢复。我们称这个过程叫做堆的<strong>有序化</strong>。有序化主要会遇到两种情况，当某个节点的优先级上升（或实在堆底加入了一个新的元素）时，我们需要由下至上恢复堆的顺序。当某个结点的优先级下降（例如，将根结点替换为一个较小的元素）时，我们需要由上至下恢复堆的顺序。首先，我们会学习如何实现这两种辅助操作，然后再用它们实现插入元素和删除最大元素的操作。</p>
+<p><strong>由下至上的堆有序化（上浮）</strong></p>
+<p>​        如果堆的有序状态因为某个结点变得比它的父结点更大而被打破，那么我们就需要通过交换它和它的父结点来修复堆。交换后，这个结点比它的两个子结点都大（一个是曾经的父结点，另一个比它更小，因为它是曾经父结点的子结点），但这个结点仍然可能比它现在的父结点更大。我们可以一遍遍地用同样的办法恢复秩序，将这个结点不断向上移动直到我们遇到了一个更大的父结点。只要记住位置k 的结点的父结点的位置是k/2(向下取整)，这个过程实现起来很简单。swim() 方法中的循环可以保证只有位置k 上的结点大于它的父结点时堆的有序状态才会被打破。因此只要该结点不再大于它的父结点，堆的有序状态就恢复了。至于方法名，当一个结点太大的时候它需要浮（swim）到堆的更高层。由下至上的堆有序化的实现代码如图所示。</p>
+<p><img src="/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/.%5C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%5C%E7%94%B1%E4%B8%8B%E8%87%B3%E4%B8%8A%E7%9A%84%E5%A0%86%E6%9C%89%E5%BA%8F%E5%8C%96%EF%BC%88%E4%B8%8A%E6%B5%AE%EF%BC%89%E7%9A%84%E5%AE%9E%E7%8E%B0.png" alt="由下至上的堆有序化（上浮）的实现"></p>
+<p><strong>由上至下的堆有序化（下沉）的实现</strong></p>
+<p>​        如果堆的有序状态因为某个结点变得比它的两个子结点或是其中之一更小了而被打破了，那么我们可以通过将它和它的两个子结点中的较大者交换来恢复堆。交换可能会在子结点处继续打破堆的有序状态，因此我们需要不断地用相同的方式将其修复，将结点向下移动直到它的子结点都比它更小或是到达了堆的底部。由位置为k 的结点的子结点位于2k 和2k+1 可以直接得到对应的代码。至于方法名，由上至下的堆有序化的实现代码见图。当一个结点太小的时候它需要沉（sink）到堆的更低层。</p>
+<p><img src="/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/.%5C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%5C%E7%94%B1%E4%B8%8A%E8%87%B3%E4%B8%8B%E7%9A%84%E5%A0%86%E6%9C%89%E5%BA%8F%E5%8C%96%EF%BC%88%E4%B8%8B%E6%B2%89%EF%BC%89%E7%9A%84%E5%AE%9E%E7%8E%B0.png" alt="由上至下的堆有序化（下沉）的实现"></p>
+<p><strong>基于堆的优先队列的实现</strong></p>
+<p>​        现在有了swin和sink方法，我们可以轻松实现一个基于堆的优先队列。插入元素时，将新元素加到数组的末尾，同时增加堆的大小并让这个新元素上浮到合适的为止。删除最大元素时，我们从数组顶端删去最大的元素并将数组的最后一个元素放到顶端，减小堆的大小并让这个元素下沉到合适的为止。具体过程如图所示。</p>
+<p><img src="/2022/03/31/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/.%5C%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%5C%E5%A0%86%E7%9A%84%E6%93%8D%E4%BD%9C.png" alt="堆的操作"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MaxPQ</span>&lt;Key <span class="keyword">extends</span> <span class="title class_">Comparable</span>&lt;Key&gt;&gt;</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">private</span> Key[] pq; <span class="comment">// 基于堆的完全二叉树</span></span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span> <span class="variable">N</span> <span class="operator">=</span> <span class="number">0</span>; <span class="comment">// 存储于pq[1..N]中，pq[0]没有使用</span></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">MaxPQ</span><span class="params">(<span class="type">int</span> maxN)</span></span><br><span class="line">	&#123; pq = (Key[]) <span class="keyword">new</span> <span class="title class_">Comparable</span>[maxN+<span class="number">1</span>]; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isEmpty</span><span class="params">()</span></span><br><span class="line">    &#123; <span class="type">return</span> <span class="variable">N</span> <span class="operator">=</span>= <span class="number">0</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">size</span><span class="params">()</span></span><br><span class="line">    &#123; <span class="keyword">return</span> N; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">insert</span><span class="params">(Key v)</span></span><br><span class="line">    &#123;</span><br><span class="line">    pq[++N] = v;</span><br><span class="line">    swim(N);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> Key <span class="title function_">delMax</span><span class="params">()</span></span><br><span class="line">    &#123;</span><br><span class="line">    <span class="type">Key</span> <span class="variable">max</span> <span class="operator">=</span> pq[<span class="number">1</span>]; <span class="comment">// 从根结点得到最大元素</span></span><br><span class="line">    exch(<span class="number">1</span>, N--); <span class="comment">// 将其和最后一个结点交换</span></span><br><span class="line">    pq[N+<span class="number">1</span>] = <span class="literal">null</span>; <span class="comment">// 防止对象游离</span></span><br><span class="line">    sink(<span class="number">1</span>); <span class="comment">// 恢复堆的有序性</span></span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 辅助方法的实现请见本节前面的代码框</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">less</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">exch</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">swim</span><span class="params">(<span class="type">int</span> k)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">sink</span><span class="params">(<span class="type">int</span> k)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        优先队列由一个基于堆的完全二叉树表示， 存储于数组pq[1..N] 中，pq[0] 没有使用。在insert() 中，我们将N 加一并把新元素添加在数组最后，然后用swim() 恢复堆的秩序。在delMax() 中，我们从pq[1] 中得到需要返回的元素，然后将pq[N] 移动到pq[1]，将N 减一并用sink() 恢复堆的秩序。同时我们还将不再使用的pq[N+1] 设为null，以便系统回收它所占用的空间。和以前一样（请见1.3 节），这里省略了动态调整数组大小的代码。对于一个含有N个元素的基于堆的优先队列，插入元素操作只需不超过（lgN+1）次比较，删除最大元素的操作需要不超过2lgN 次比较。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>手写实现mustache模板引擎</title>
     <url>/2022/03/30/%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0mustache%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
