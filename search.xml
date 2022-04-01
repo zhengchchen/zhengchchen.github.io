@@ -48,6 +48,8 @@
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
 <p>ECMAScript变量是弱类型的，即变量可以用于保存任意类型的数据。每个变量只不过是用于保存任意值的命名占位符。var、let和const都可以用于声明变量，但它们各有区别。其中，let和const只能在ECMAScript6之后的版本使用。</p>
 </blockquote>
+<span id="more"></span>
+
 <h3 id="var关键字"><a href="#var关键字" class="headerlink" title="var关键字"></a>var关键字</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> message;</span><br></pre></td></tr></table></figure>
 
 <p>定义了一个变量，它可以存储任何类型的值。但此时没有初始化，它的值为<em>undefined</em>。</p>
