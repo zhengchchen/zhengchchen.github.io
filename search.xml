@@ -323,8 +323,10 @@
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>本文会完整探索客户端Web 应用程序的生命周期，从页面请求开始，到用户不同种类的交互，最后至页面被关闭。首先我们来看看页面是如何从HTML 代码建立的。然后我们将集中探讨JavaScript 代码的执行，它给我们的页面提供了大量交互。最后我们会看看为了响应用户的动作，事件是如何被处理的。在这一些列过程中，我们将探索很多Web 应用的基础概念，例如DOM（Web 页面的一种结构化表示方式）和事件循环（它决定了应用如何处理事件）。</p>
 </blockquote>
+<span id="more"></span>
+
 <h2 id="生命周期概览"><a href="#生命周期概览" class="headerlink" title="生命周期概览"></a>生命周期概览</h2><p>一个典型的web应用的生命周期从用户在地址栏输入一串URL开始，当浏览器接收到请求，并返回了一个由HTML、CSS和JavaScript代码组成的响应，这时候一个web应用的生命周期正式开始。首先他会进行页面的构建，然后等待事件(用户与页面的交互)发生，之后为用户调用相应的事件回调。</p>
-<p><img src="/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A6%82%E8%A7%88.png" alt="生命周期概览"></p>
+<p><img src="/2022/04/20/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A6%82%E8%A7%88.png" alt="生命周期概览"></p>
 <h2 id="页面构建阶段"><a href="#页面构建阶段" class="headerlink" title="页面构建阶段"></a>页面构建阶段</h2><p>页面构建阶段的目标是根据HTML、CSS和JavaScript代码来建立Web应用的UI，主要包含两个步骤：</p>
 <ul>
 <li>在浏览器处理HTML节点的过程中，解析HTML代码并构建文档对象模型（DOM);</li>
@@ -332,9 +334,9 @@
 </ul>
 <p>在页面构建过程中，这两个步骤会交替运行多次。</p>
 <h3 id="HTML解析和DOM构建"><a href="#HTML解析和DOM构建" class="headerlink" title="HTML解析和DOM构建"></a>HTML解析和DOM构建</h3><p>页面构建起始于浏览器接收HTML代码，将HTML节点构建成DOM树，直到遇见第一个脚本元素。节点是以树的形式组织的，除开html根节点以外，每个节点都只有一个父节点。一个典型的HTML结构过程如图所示。</p>
-<p><img src="/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B/HTML%E8%A7%A3%E6%9E%90%E4%B8%BADOM.png" alt="HTML解析为DOM"></p>
+<p><img src="/2022/04/20/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B/HTML%E8%A7%A3%E6%9E%90%E4%B8%BADOM.png" alt="HTML解析为DOM"></p>
 <p>需要注意的是，尽管DOM是以html创建，但二者并不相同，HTML相当于浏览器构建页面的蓝图，在构建过程中，浏览器会修复HTML文件中出现的一些问题，如图所示，在这个例子中，p标签并不应该出现在head中，因此，浏览器进行错误的修复，将它放入到了body标签内部。</p>
-<p><img src="/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B/HTML%E4%BF%AE%E5%A4%8D%E9%94%99%E8%AF%AF.png" alt="HTML修复错误"></p>
+<p><img src="/2022/04/20/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B/HTML%E4%BF%AE%E5%A4%8D%E9%94%99%E8%AF%AF.png" alt="HTML修复错误"></p>
 <h3 id="执行JavaScript代码"><a href="#执行JavaScript代码" class="headerlink" title="执行JavaScript代码"></a>执行JavaScript代码</h3><h4 id="JavaScript全局变量"><a href="#JavaScript全局变量" class="headerlink" title="JavaScript全局变量"></a>JavaScript全局变量</h4><p>所有放在脚本节点的JavaScript代码都由浏览器的JavaScript引擎执行(例如v8引擎等)。脚本元素中的代码主要是提供动态页面，因此浏览器通过全局对象提供了一个API来进行页面的动态交互。这个全局对象即<strong>window对象</strong>，它代表包含当前页面的窗口。通过window对象可以获取到全局对象、全局变量和浏览器API。window对象中最重要的属性是<strong>document</strong>，它代表的当前页面的DOM。通过document对象我们可以对DOM进行任意程度上的修改。</p>
 <h4 id="JavaScript代码不同类型"><a href="#JavaScript代码不同类型" class="headerlink" title="JavaScript代码不同类型"></a>JavaScript代码不同类型</h4><p>JavaScript代码分为全局代码和函数代码。函数代码指包含在函数内部的代码，而在所有函数外部的代码即为全局代码。</p>
 <ul>
@@ -342,7 +344,7 @@
 <li>函数代码要想运行，则必须被其他代码调用。</li>
 </ul>
 <h4 id="在页面构建阶段执行JavaScript-代码"><a href="#在页面构建阶段执行JavaScript-代码" class="headerlink" title="在页面构建阶段执行JavaScript 代码"></a>在页面构建阶段执行JavaScript 代码</h4><p>如图所示，显示了全局JavaScript代码被执行后DOM的更新过程，首先通过<code>document.getElementById(&quot;first&quot;)</code>获取到了一个id为first的HTML节点，然后通过<code>addMessage(first,&quot;Page loading&quot;)</code>为这个节点添加了一个li元素，并修改了它的文字内容。</p>
-<p><img src="/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B%5C%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E6%97%B6JavaScript%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B.png"></p>
+<p><img src="/2022/04/20/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B/%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E6%97%B6JavaScript%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B.png"></p>
 <p><strong>tips：</strong>JavaScript代码可以在任意程度上修改DOM，但它仍然不能选择和修改还没被创建的节点。<strong>这就是为什么要把script元素放在页面底部的原因。可以保证所有的HTML元素都已经加载到DOM上。</strong></p>
 <p>在脚本元素中的JavaScript代码执行完成后，浏览器又开始进行HTML构建DOM的过程。需要重点注意：JavaScript 应用在此时依然会保持着全局状态。所有在某个JavaScript 代码执行期间用户创建的全局变量都能正常地被其他脚本元素中的JavaScript 代码所访问到。其原因在于<strong>全局window 对象会存在于整个页面的生存期之间，在它上面存储着所有的JavaScript变量。</strong>当浏览器将所有HTML节点构建完成后，就进入到了应用生命周期的第二部分：事件处理。</p>
 <h2 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h2><h3 id="事件处理器概览"><a href="#事件处理器概览" class="headerlink" title="事件处理器概览"></a>事件处理器概览</h3><p>浏览器执行环境的核心思想是：同一时刻只能执行一段代码，即所谓的<strong>单线程</strong>执行。因此，浏览器需要一种方式来跟踪已经发生但尚未处理的事件，为实现这个目标，浏览器使用了事件队列。所有已生成的事件（无论是用户生成的，例如鼠标移动或键盘按压，还是服务器生<br>成的，例如Ajax 事件）都会放在同一个事件队列中，以它们被浏览器检测到的顺序排列。事件处理的过程可以描述为一个简单流程图：</p>
@@ -364,9 +366,9 @@
 <li>通过使用内置addEventListener方法，<code>addEventListener</code>方法</li>
 </ul>
 <h3 id="处理事件"><a href="#处理事件" class="headerlink" title="处理事件"></a>处理事件</h3><p>处理事件背后的主要思想是：当事件发生时，浏览器调用相应的事件处理器。因为浏览器的单线程执行模型，任何后面的事件只有在当前事件处理器完全执行结束之后才能被处理。如图所示，为浏览器处理用户鼠标移动和点击事件的过程。</p>
-<p><img src="/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B/%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86.png"></p>
+<p><img src="/2022/04/20/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B/%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86.png"></p>
 <p>这个过程也会相应地影响DOM：执行鼠标移动处理器时会选择第二个列表元素，其ID 为second。然后通过使用addMessage，使用文字“Event: mousemove”添加了一个新的列表项元素序号1。一旦鼠标移动处理器结束后，事件循环执行单击事件处理器，从而创建了另一个列表元素序号2，并附加在ID 为second 的第二个列表元素后。</p>
-<p><img src="/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B/%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86DOM.png"></p>
+<p><img src="/2022/04/20/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B/%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86DOM.png"></p>
 <p>以上，即为web应用的一个完整的生命周期，本文主要内容参考《JavaScript忍者秘籍》。</p>
 ]]></content>
       <categories>
