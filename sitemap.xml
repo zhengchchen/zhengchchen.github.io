@@ -3,10 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://zhengchengchen.com/</loc>
-    <lastmod>2023-12-03T10:31:09+08:00</lastmod>
+    <lastmod>2023-12-03T11:35:57+08:00</lastmod>
   </url><url>
     <loc>https://zhengchengchen.com/blog/</loc>
-    <lastmod>2023-12-03T10:31:09+08:00</lastmod>
+    <lastmod>2023-12-03T11:35:57+08:00</lastmod>
+  </url><url>
+    <loc>https://zhengchengchen.com/rustup-%E5%92%8C-cargo/</loc>
+    <lastmod>2023-12-03T11:35:57+08:00</lastmod>
   </url><url>
     <loc>https://zhengchengchen.com/blog/package/</loc>
     <lastmod>2023-12-03T10:31:09+08:00</lastmod>
@@ -16,17 +19,5 @@
   </url><url>
     <loc>https://zhengchengchen.com/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B8%80%E8%AE%A4%E8%AF%86-packgae/</loc>
     <lastmod>2023-12-03T10:31:09+08:00</lastmod>
-  </url><url>
-    <loc>https://zhengchengchen.com/test/</loc>
-    <lastmod>2023-12-02T23:09:31+08:00</lastmod>
-  </url><url>
-    <loc>https://zhengchengchen.com/blog/markdown/</loc>
-    <lastmod>2020-01-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://zhengchengchen.com/markdown-syntax-guide/</loc>
-    <lastmod>2020-01-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://zhengchengchen.com/blog/syntax/</loc>
-    <lastmod>2020-01-03T00:00:00+00:00</lastmod>
   </url>
 </urlset>

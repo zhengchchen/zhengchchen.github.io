@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://zhengchengchen.com/images/favicon.png" />
+<title>rustup 和 cargo | zhengchengchen&#39;s blog</title>
+<meta name="title" content="rustup 和 cargo" />
+<meta name="description" content="Rust 学习笔记，rustup 是 rust 版本和工具相关的命令行工具，Cargo 是 rsut 的构建系统和包管理器。" />
+<meta name="keywords" content="" />
+
+
+<meta property="og:title" content="rustup 和 cargo" />
+<meta property="og:description" content="Rust 学习笔记，rustup 是 rust 版本和工具相关的命令行工具，Cargo 是 rsut 的构建系统和包管理器。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhengchengchen.com/rustup-%E5%92%8C-cargo/" /><meta property="og:image" content="https://zhengchengchen.com/images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-12-03T11:35:57+08:00" />
+<meta property="article:modified_time" content="2023-12-03T11:35:57+08:00" /><meta property="og:site_name" content="zhengchengchen&#39;s blog" />
+
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zhengchengchen.com/images/share.png"/>
+
+<meta name="twitter:title" content="rustup 和 cargo"/>
+<meta name="twitter:description" content="Rust 学习笔记，rustup 是 rust 版本和工具相关的命令行工具，Cargo 是 rsut 的构建系统和包管理器。"/>
+
+
+
+<meta itemprop="name" content="rustup 和 cargo">
+<meta itemprop="description" content="Rust 学习笔记，rustup 是 rust 版本和工具相关的命令行工具，Cargo 是 rsut 的构建系统和包管理器。"><meta itemprop="datePublished" content="2023-12-03T11:35:57+08:00" />
+<meta itemprop="dateModified" content="2023-12-03T11:35:57+08:00" />
+<meta itemprop="wordCount" content="61"><meta itemprop="image" content="https://zhengchengchen.com/images/share.png"/>
+<meta itemprop="keywords" content="" />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>zhengchengchen&#39;s blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>rustup 和 cargo</h1>
+<p>
+  <i>
+    <time datetime='2023-12-03' pubdate>
+      2023.12.03
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>我们会通过  <code>rustup</code>  下载 Rust，这是一个管理 Rust 版本和相关工具的命令行工具。Cargo 是 Rust 的构建系统和包管理器。大多数 Rustacean 们使用 Cargo 来管理他们的 Rust 项目，因为它可以为你处理很多任务，比如构建代码、下载依赖库并编译这些库。</p>
+<h2 id="rustup">rustup</h2>
+<ul>
+<li><code>rustc --version</code> 查看版本</li>
+<li><code>rustup --update</code> 更新版本</li>
+<li><code>rustup self uninstall</code> 卸载</li>
+<li><code>rustup docs</code> 查看本地文档</li>
+</ul>
+<h2 id="cargo-构建并运行">cargo 构建并运行</h2>
+<ul>
+<li><code>cargo new</code> 创建项目</li>
+<li><code>cargo build</code>  构建项目</li>
+<li><code>cargo run</code>  一步构建并运行项目</li>
+<li><code>cargo check</code>  在不生成二进制文件的情况下构建项目来检查错误</li>
+<li><code>cargo</code> 将构建好的二进制文件放在  <em>target/debug</em> 目录</li>
+<li><code>cargo doc --open</code>  命令来构建所有本地依赖提供的文档，并在浏览器中打开</li>
+</ul>
+<h2 id="cargo-release-发布">cargo release 发布</h2>
+<p><code>cargo build --release</code>优化编译项目，此时打包后的项目后放在 <em>target/release</em> 下，优化会消耗更多的编译时间，让 Rust 代码运行的更快。</p>
+
+</content>
+<p>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>
