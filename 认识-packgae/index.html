@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://zhengchengchen.com/images/favicon.png" />
+<title>认识 packgae | zhengchengchen&#39;s blog</title>
+<meta name="title" content="认识 packgae" />
+<meta name="description" content="前端工程化系列第一篇，从 package 入手，学习前端包相关的属性和过程。" />
+<meta name="keywords" content="前端工程化,package," />
+
+
+<meta property="og:title" content="认识 packgae" />
+<meta property="og:description" content="前端工程化系列第一篇，从 package 入手，学习前端包相关的属性和过程。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhengchengchen.com/%E8%AE%A4%E8%AF%86-packgae/" /><meta property="og:image" content="https://zhengchengchen.com/images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-12-03T10:31:09+08:00" />
+<meta property="article:modified_time" content="2023-12-03T10:31:09+08:00" /><meta property="og:site_name" content="zhengchengchen&#39;s blog" />
+
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zhengchengchen.com/images/share.png"/>
+
+<meta name="twitter:title" content="认识 packgae"/>
+<meta name="twitter:description" content="前端工程化系列第一篇，从 package 入手，学习前端包相关的属性和过程。"/>
+
+
+
+<meta itemprop="name" content="认识 packgae">
+<meta itemprop="description" content="前端工程化系列第一篇，从 package 入手，学习前端包相关的属性和过程。"><meta itemprop="datePublished" content="2023-12-03T10:31:09+08:00" />
+<meta itemprop="dateModified" content="2023-12-03T10:31:09+08:00" />
+<meta itemprop="wordCount" content="528"><meta itemprop="image" content="https://zhengchengchen.com/images/share.png"/>
+<meta itemprop="keywords" content="前端工程化,package," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>zhengchengchen&#39;s blog</h2>
+</a>
+<nav><a href="/">Home</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>认识 packgae</h1>
+<p>
+  <i>
+    <time datetime='2023-12-03' pubdate>
+      2023.12.03
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>npm 是 node.js 原生自带的包管理工具（package manager），而 npmjs.org 是 node.js 官方包仓库，也被称为 npm registry。除了 npm 之外，还有诸多包管理工具，比如 yarn、pnpm 等。</p>
+<h2 id="npm-与-package">npm 与 package</h2>
+<h3 id="package">Package</h3>
+<p>而 package 指的是拥有一个 package.json 的一个文件夹（或压缩包），package 的属性就是 package.json 中文件的内容，例如：</p>
+<ul>
+<li>name：包名，唯一</li>
+<li>version：版本号</li>
+<li>main：默认引入的文件</li>
+<li>homepage：包的官网或者文档</li>
+</ul>
+<p>因为包的名称是唯一的，我们可以通过包名定位到 package 和对应的文档。</p>
+<p>在 <code>npmjs.com</code> 中，比如 <code>https://www.npmjs.com/package/&lt;package-name&gt;</code>，只要知道了该包的名字，就可以快速定位到该包的 npm 仓库页面，并了解到关于该包的诸多信息。例如：<a href="https://www.npmjs.com/package/lodash">https://www.npmjs.com/package/lodash</a></p>
+<p>基于以上原理，可以通过 npm docs 命令快速找到一个 package 的官方文档。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm docs lodash
+</span></span></code></pre></div><h3 id="真实的-package">真实的 package</h3>
+<p>package 指拥有 package.json 的一个文件夹，但是我们所使用的 package 往往不是我们原地啊吗目录的文件夹，因为包都是经过构建的。一个 package 的真实面目可以在 node_modules 下找到。或者，在某些 cdn 上根据某个 package 的 name 进行快速定位，比如：</p>
+<ul>
+<li><a href="https://unpkg.com/lodash/">https://unpkg.com/lodash/</a></li>
+<li><a href="https://cdn.jsdelivr.net/npm/lodash/">https://cdn.jsdelivr.net/npm/lodash/</a></li>
+</ul>
+<h2 id="semver">semver</h2>
+<p>关于 package 最重要且必须的属性是 name 与 version。semver，即 semantic versioning，语义话文本，它由[major, minor, patch]三部分组成，例如 17.1.1，其中</p>
+<ul>
+<li>major：当发布一个 breaking change 的 api 时，递增 major 版本号，即 18.0.0</li>
+<li>minor：当新增了一个向后兼容的功能后，递增 minor 版本号，即 17.2.0</li>
+<li>patch：当修复了一个向后兼容的 bug 时，递增 patch 版本号，即 17.1.2</li>
+</ul>
+<p>在一些大型包管理中，如果没有正式发布，会选择使用 prerelease 的版本号，例如 1.0.0-alpha。</p>
+<h3 id="版本号范围">版本号范围</h3>
+<p>当我们手动安装一个包，它写在 package.json 中的即为版本号范围。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">dependencies</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">midash</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;~1.8.1&#34;</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>对于 ～ 1.2.3 而言，它的版本号范围是 &gt;= 1.2.3 且 &lt; 1.3.0</p>
+<p>对于 ^1.2.3 而言，它的版本号范围是 &gt;= 1.2.3 且 &lt; 2.0.0</p>
+<p>当我们使用 npm i 时，默认的版本号为 ^，可最大限度地在向后兼容与新特性之间做取舍，但是有些库可能不遵循改规则，我们在项目应当使用 yarn.lack 或 package-lock.json 来锁定版本号。</p>
+<h3 id="版本号计算">版本号计算</h3>
+<p>可以通过<a href="https://github.com/npm/node-semver">semver</a> 包进行版本号的计算，例如</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">semver</span>.<span style="color:#a6e22e">valid</span>(<span style="color:#e6db74">&#34;1.2.3&#34;</span>); <span style="color:#75715e">// &#39;1.2.3&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">semver</span>.<span style="color:#a6e22e">valid</span>(<span style="color:#e6db74">&#34;a.b.c&#34;</span>); <span style="color:#75715e">// null
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">semver</span>.<span style="color:#a6e22e">clean</span>(<span style="color:#e6db74">&#34;  =v1.2.3   &#34;</span>); <span style="color:#75715e">// &#39;1.2.3&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">semver</span>.<span style="color:#a6e22e">satisfies</span>(<span style="color:#e6db74">&#34;1.2.3&#34;</span>, <span style="color:#e6db74">&#34;1.x || &gt;=2.5.0 || 5.0.0 - 7.2.3&#34;</span>); <span style="color:#75715e">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">semver</span>.<span style="color:#a6e22e">gt</span>(<span style="color:#e6db74">&#34;1.2.3&#34;</span>, <span style="color:#e6db74">&#34;9.8.7&#34;</span>); <span style="color:#75715e">// false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">semver</span>.<span style="color:#a6e22e">lt</span>(<span style="color:#e6db74">&#34;1.2.3&#34;</span>, <span style="color:#e6db74">&#34;9.8.7&#34;</span>); <span style="color:#75715e">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">semver</span>.<span style="color:#a6e22e">minVersion</span>(<span style="color:#e6db74">&#34;&gt;=1.0.0&#34;</span>); <span style="color:#75715e">// &#39;1.0.0&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">semver</span>.<span style="color:#a6e22e">valid</span>(<span style="color:#a6e22e">semver</span>.<span style="color:#a6e22e">coerce</span>(<span style="color:#e6db74">&#34;v2&#34;</span>)); <span style="color:#75715e">// &#39;2.0.0&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">semver</span>.<span style="color:#a6e22e">valid</span>(<span style="color:#a6e22e">semver</span>.<span style="color:#a6e22e">coerce</span>(<span style="color:#e6db74">&#34;42.6.7.9.3-alpha&#34;</span>)); <span style="color:#75715e">// &#39;42.6.7&#39;
+</span></span></span></code></pre></div><h2 id="依赖">依赖</h2>
+<h3 id="npm-i-package">npm i &lt;package&gt;</h3>
+<p>通过 npm i 进行下载，会下载最新版本的包，写入 <code>package.json</code> 文件中的<code>dependencies</code>字段</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;dependencies&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;lodash&#34;</span>: <span style="color:#e6db74">&#34;^4.17.21&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>如果通过 npm i -D lodash，将会写入 <code>package.json</code> 文件中的<code>devDependencies</code>字段中。</p>
+<h3 id="uri-as-dependency">URI as dependency</h3>
+<p>依赖页可以通过 URI 的方式安装，例如</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm i git+ssh://git@github.com:npm/cli.git
+</span></span></code></pre></div><p>也可通过压缩包及本地文件的形式进行安装。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;dependencies&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;npm&#34;</span>: <span style="color:#e6db74">&#34;git+ssh://git@github.com:npm/cli.git&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;foo&#34;</span>: <span style="color:#e6db74">&#34;http://q.shanyue.tech/foo.tar.gz&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;bar&#34;</span>: <span style="color:#e6db74">&#34;file:../bar&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="alias">alias</h3>
+<p>如果需要在项目中使用某个包的不同版本，可以通过别名的方式引入。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>$ npm install &lt;alias&gt;@npm:&lt;name&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ npm install vue2@npm:vue@2
+</span></span><span style="display:flex;"><span>$ npm install vue3@npm:vue@3
+</span></span></code></pre></div><p>在<code>package</code>中依赖如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;dependencies&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;vue2&#34;</span>: <span style="color:#e6db74">&#34;npm:vue@2&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;vue3&#34;</span>: <span style="color:#e6db74">&#34;npm:vue@3&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="开发依赖">开发依赖</h2>
+<h3 id="包开发区别">包开发区别</h3>
+<ul>
+<li>
+<p>dependencies: 在生产环节使用</p>
+</li>
+<li>
+<p>devDependencies: 在开发环境使用，webpack/babel/eslint 等</p>
+</li>
+<li>
+<p>只有 dependencies 中的被会被包的依赖安装，zero dependencies 指的是不依赖任何 dependencies</p>
+</li>
+</ul>
+<h3 id="业务开发">业务开发</h3>
+<p>当进行业务开发时，二者无严格区别。一般需要加上 private 字段。</p>
+<h3 id="install-size">install size</h3>
+<p>指的是某个包的所有依赖及间接依赖（递归 pkg 的所有 dependencies 的总和），可以在<code>https://pkg-size.dev/</code>查看某个包的安装体积。</p>
+<h2 id="engines">engines</h2>
+<p>制定某个项目所需的<code>node</code>最小版本</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;engines&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;node&#34;</span>: <span style="color:#e6db74">&#34;&gt;=14.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>如果版本不匹配会报错（yarn）或者警告（npm）</li>
+<li>最为重要的是，项目中某些依赖所需要的 Node 版本号与项目运行时的 Node 版本号不匹配，也会报错(在 yarn 中)</li>
+</ul>
+<h2 id="nodejs-lts">nodejs LTS</h2>
+<p>nodejs 的版本控制采用了<code>semver</code>，即语义话控制。对于 nodejs 这类大型开源项目来说，偶数的版本代表稳定版本，奇数的版本代表实验版本，对于 nodejs 主要由以下两类版本：</p>
+<ul>
+<li>LTS：Long Term Support，长期支持版本。一般会两年发布一个 LTS，并维护 30 个月的时间，公司生产环境一般应选 LTS。</li>
+<li>Current：用以展示最新的功能和实验特性，因为 api 可能会经常变化，不推荐使用。 因此对开发 npm 包来说，只需要支持到上一个 LTS 版本即可。</li>
+</ul>
+<h2 id="npm-script">npm script</h2>
+<p>npm script 是在 javascript 项目中定义脚本的方法。可以通过 npm run &lt;command&gt; 的方式快速执行脚本。允许通过运行一些命令来自动化大部分常见任务，例如编译代码、运行测试、启动服务器等。它可以让开发者快速开发、构建和部署项目，也使得项目的配置变得更加简单和易于维护。 通过 <code>package.json</code> 中的 <code>script</code> 字段进行配置：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;scripts&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;dev&#34;</span>: <span style="color:#e6db74">&#34;next&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;start&#34;</span>: <span style="color:#e6db74">&#34;next start&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>在 package.json 默认的 scripts 有：</p>
+<ul>
+<li>install：依赖安装</li>
+<li>start：启动服务</li>
+<li>test：测试项目 他们可以通过 npm &lt;command&gt; 直接运行，如 npm install、npm start。 除了默认的 scripts 外，还有一些约定俗成的脚本，比如：</li>
+<li>build：构建打包</li>
+<li>dev：开发环境</li>
+<li>lint：格式化</li>
+</ul>
+<p>对于此类自定义的 scripts 需要 npm run &lt;command&gt; 方可执行。 </p>
+<p>scirpt 定义的实际上是命令行命令。</p>
+<p>如环境变量，NODE_ENV=production <!-- raw HTML omitted --> 是 Linux 中常见的配置环境变量的方式，在执行命令时读取环境变量 NODE_ENV 为 production。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;scripts&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;dev&#34;</span>: <span style="color:#e6db74">&#34;NODE_ENV=production webpack&#34;</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;dev:cross-platform&#34;</span>: <span style="color:#e6db74">&#34;cross-env NODE_ENV=production webpack&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="prepost-script">pre/post script</h2>
+<p>可以在 <code>npm script</code> 中用一些钩子进行辅助开发，提升效率。比如以下问题：</p>
+<ol>
+<li>在 npm publish 发包之前忘记 npm run build，导致发包无效</li>
+<li>在 npm start 启动服务之前需要执行某命令以进行配置数据，但每次都需要记得执行命令，很是繁琐</li>
+<li>npm scripts 有两个最为重要的钩子，即 pre/post，这些钩子允许我们在 npm script 执行前后自动执行自定义脚本，可以用于执行一些预处理或后处理任务。</li>
+<li>当我们在手动执行 npm run xxx 时，若果 prexxx 及 postxxx 在 scripts 存在时，它将会自动执行 npm run prexxx 以及 npm run postxxx。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;scripts&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;prelint&#34;</span>: <span style="color:#e6db74">&#34;echo &#39;Preparing to lint...&#39;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;lint&#34;</span>: <span style="color:#e6db74">&#34;eslint&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;postlint&#34;</span>: <span style="color:#e6db74">&#34;echo &#39;liting complete.&#39;&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><em>tips:pnpm 中默认未开启 pre/post 钩子，如果需要使用则需要配置 enable-pre-post-scripts</em></p>
+<h2 id="lifecycle-script">lifecycle script</h2>
+<p>除了简单的 pre/post 外，<code>npm publish</code>还有更复杂的生命周期，大概分为以下三阶段：</p>
+<ol>
+<li><code>npm run prepare</code></li>
+<li><a href="https://docs.npmjs.com/cli/v9/commands/npm-pack/">npm pack</a></li>
+<li><a href="https://docs.npmjs.com/cli/v9/commands/npm-publish">npm publish</a></li>
+</ol>
+<h3 id="prepare">prepare</h3>
+<p>prepare 将自动发生在以下两个阶段：</p>
+<ul>
+<li>npm install 之后自动执行，因此有时 prepare 会代替 postinstall 的功能</li>
+<li>npm publish 之前自动执行</li>
+</ul>
+<h3 id="pack">pack</h3>
+<p>npm pack 将当前 npm 包的内容进行压缩打包为 tarball，这也是实际上传到 npm 仓库的内容。
+在我们 npm publish 发包之前，会自动执行 npm pack 压缩打包。在 npm pack 时，会自动计算出 integrity 等信息，方便 npm i 时进行完整性校验。</p>
+<h3 id="publish">publish</h3>
+<p>npm publish 将本地的 npm 包进行 npm pack 打包，并上传到 npm 仓库。以下就是 publish 相关的钩子，其中最为重要的是 prepublishOnly 与 prepare。见 <a href="https://docs.npmjs.com/cli/v8/using-npm/scripts#npm-publish">npm publish</a></p>
+<ul>
+<li>prepublishOnly</li>
+<li>prepack</li>
+<li>prepare</li>
+<li>postpack</li>
+<li>publish</li>
+<li>postpublish</li>
+</ul>
+
+</content>
+<p>
+  
+  <a href="https://zhengchengchen.com/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">#前端工程化</a>
+  
+  <a href="https://zhengchengchen.com/blog/package/">#package</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>
