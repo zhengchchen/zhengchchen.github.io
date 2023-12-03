@@ -7,20 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright © 2023, Zheng Chengchen.</copyright>
-    <lastBuildDate>Sun, 03 Dec 2023 10:31:09 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 13 Oct 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://zhengchengchen.com/blog/package/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>认识 packgae</title>
-      <link>https://zhengchengchen.com/%E8%AE%A4%E8%AF%86-packgae/</link>
-      <pubDate>Sun, 03 Dec 2023 10:31:09 +0800</pubDate>
-      <guid>https://zhengchengchen.com/%E8%AE%A4%E8%AF%86-packgae/</guid>
-      <description>npm 是 node.js 原生自带的包管理工具（package manager），而 npmjs.org 是 node.js 官方包仓库，也被称为 npm registry。除了 npm 之外，还有诸多包管理工具，比如 yarn、pnpm 等。
-npm 与 package Package 而 package 指的是拥有一个 package.json 的一个文件夹（或压缩包），package 的属性就是 package.json 中文件的内容，例如：
-name：包名，唯一 version：版本号 main：默认引入的文件 homepage：包的官网或者文档 因为包的名称是唯一的，我们可以通过包名定位到 package 和对应的文档。
-在 npmjs.com 中，比如 https://www.npmjs.com/package/&amp;lt;package-name&amp;gt;，只要知道了该包的名字，就可以快速定位到该包的 npm 仓库页面，并了解到关于该包的诸多信息。例如：https://www.npmjs.com/package/lodash
-基于以上原理，可以通过 npm docs 命令快速找到一个 package 的官方文档。
-npm docs lodash 真实的 package package 指拥有 package.json 的一个文件夹，但是我们所使用的 package 往往不是我们原地啊吗目录的文件夹，因为包都是经过构建的。一个 package 的真实面目可以在 node_modules 下找到。或者，在某些 cdn 上根据某个 package 的 name 进行快速定位，比如：
-https://unpkg.com/lodash/ https://cdn.jsdelivr.net/npm/lodash/ semver 关于 package 最重要且必须的属性是 name 与 version。semver，即 semantic versioning，语义话文本，它由[major, minor, patch]三部分组成，例如 17.</description>
+      <title>认识 package</title>
+      <link>https://zhengchengchen.com/%E8%AE%A4%E8%AF%86-package/</link>
+      <pubDate>Fri, 13 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://zhengchengchen.com/%E8%AE%A4%E8%AF%86-package/</guid>
+      <description>&lt;p&gt;npm 是 node.js 原生自带的包管理工具（package manager），而 npmjs.org 是 node.js 官方包仓库，也被称为 npm registry。除了 npm 之外，还有诸多包管理工具，比如 yarn、pnpm 等。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

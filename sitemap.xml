@@ -2,28 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://zhengchengchen.com/</loc>
-    <lastmod>2023-12-03T11:35:57+08:00</lastmod>
-  </url><url>
     <loc>https://zhengchengchen.com/blog/</loc>
-    <lastmod>2023-12-03T11:35:57+08:00</lastmod>
+    <lastmod>2023-11-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zhengchengchen.com/blog/rust/</loc>
+    <lastmod>2023-11-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zhengchengchen.com/rustup-%E5%92%8C-cargo/</loc>
-    <lastmod>2023-12-03T11:35:57+08:00</lastmod>
+    <lastmod>2023-11-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zhengchengchen.com/</loc>
+    <lastmod>2023-11-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zhengchengchen.com/blog/package/</loc>
-    <lastmod>2023-12-03T10:31:09+08:00</lastmod>
+    <lastmod>2023-10-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zhengchengchen.com/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/</loc>
-    <lastmod>2023-12-03T10:31:09+08:00</lastmod>
+    <lastmod>2023-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://zhengchengchen.com/%E8%AE%A4%E8%AF%86-packgae/</loc>
-    <lastmod>2023-12-03T10:31:09+08:00</lastmod>
-  </url><url>
-    <loc>https://zhengchengchen.com/categories/css/</loc>
-  </url><url>
-    <loc>https://zhengchengchen.com/categories/javascript/</loc>
-  </url><url>
-    <loc>https://zhengchengchen.com/categories/uncategories/</loc>
+    <loc>https://zhengchengchen.com/%E8%AE%A4%E8%AF%86-package/</loc>
+    <lastmod>2023-10-13T00:00:00+00:00</lastmod>
   </url>
 </urlset>

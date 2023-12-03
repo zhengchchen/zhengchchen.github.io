@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogs on zhengchengchen&#39;s blog</title>
-    <link>https://zhengchengchen.com/blog/</link>
-    <description>Recent content in Blogs on zhengchengchen&#39;s blog</description>
+    <title>rust on zhengchengchen&#39;s blog</title>
+    <link>https://zhengchengchen.com/blog/rust/</link>
+    <description>Recent content in rust on zhengchengchen&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright © 2023, Zheng Chengchen.</copyright>
     <lastBuildDate>Wed, 01 Nov 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://zhengchengchen.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://zhengchengchen.com/blog/rust/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>rustup 和 cargo</title>
       <link>https://zhengchengchen.com/rustup-%E5%92%8C-cargo/</link>
       <pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://zhengchengchen.com/rustup-%E5%92%8C-cargo/</guid>
       <description>&lt;p&gt;我们会通过  &lt;code&gt;rustup&lt;/code&gt;  下载 Rust，这是一个管理 Rust 版本和相关工具的命令行工具。Cargo 是 Rust 的构建系统和包管理器。大多数 Rustacean 们使用 Cargo 来管理他们的 Rust 项目，因为它可以为你处理很多任务，比如构建代码、下载依赖库并编译这些库。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>认识 package</title>
-      <link>https://zhengchengchen.com/%E8%AE%A4%E8%AF%86-package/</link>
-      <pubDate>Fri, 13 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://zhengchengchen.com/%E8%AE%A4%E8%AF%86-package/</guid>
-      <description>&lt;p&gt;npm 是 node.js 原生自带的包管理工具（package manager），而 npmjs.org 是 node.js 官方包仓库，也被称为 npm registry。除了 npm 之外，还有诸多包管理工具，比如 yarn、pnpm 等。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
