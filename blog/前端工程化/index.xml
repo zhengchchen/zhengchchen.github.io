@@ -10,10 +10,10 @@
     <lastBuildDate>Sun, 03 Dec 2023 10:31:09 +0800</lastBuildDate>
     <atom:link href="https://zhengchengchen.com/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>前端工程化（一）：认识packgae</title>
-      <link>https://zhengchengchen.com/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B8%80%E8%AE%A4%E8%AF%86packgae/</link>
+      <title>前端工程化（一）：认识 packgae</title>
+      <link>https://zhengchengchen.com/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B8%80%E8%AE%A4%E8%AF%86-packgae/</link>
       <pubDate>Sun, 03 Dec 2023 10:31:09 +0800</pubDate>
-      <guid>https://zhengchengchen.com/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B8%80%E8%AE%A4%E8%AF%86packgae/</guid>
+      <guid>https://zhengchengchen.com/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B8%80%E8%AE%A4%E8%AF%86-packgae/</guid>
       <description>npm 是 node.js 原生自带的包管理工具（package manager），而 npmjs.org 是 node.js 官方包仓库，也被称为 npm registry。除了 npm 之外，还有诸多包管理工具，比如 yarn、pnpm 等。
 npm 与 package Package 而 package 指的是拥有一个 package.json 的一个文件夹（或压缩包），package 的属性就是 package.json 中文件的内容，例如：
 name：包名，唯一 version：版本号 main：默认引入的文件 homepage：包的官网或者文档 因为包的名称是唯一的，我们可以通过包名定位到 package 和对应的文档。
