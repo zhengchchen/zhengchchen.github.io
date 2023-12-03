@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://zhengchengchen.com/</loc>
+    <lastmod>2023-11-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://zhengchengchen.com/blog/</loc>
     <lastmod>2023-11-01T00:00:00+00:00</lastmod>
   </url><url>
@@ -9,9 +12,6 @@
     <lastmod>2023-11-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zhengchengchen.com/rustup-%E5%92%8C-cargo/</loc>
-    <lastmod>2023-11-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://zhengchengchen.com/</loc>
     <lastmod>2023-11-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zhengchengchen.com/blog/package/</loc>
